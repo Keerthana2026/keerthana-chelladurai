@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience</title>
+</head>
+<body>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certifications-container">
+            <!-- Card 1 -->
+            <div class="card" data-cert="cert1">
+                <h3>Data Analysis with Python</h3>
+                <p>Learned data analysis using Python and Pandas. Click to view certificate.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card" data-cert="cert2">
+                <h3>Google Data Analytics</h3>
+                <p>Completed Google's comprehensive Data Analytics program. Click to view certificate.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card" data-cert="cert3">
+                <h3>Advanced Excel</h3>
+                <p>Mastered Excel functions, pivot tables, and automation. Click to view certificate.</p>
+            </div>
+        </div>
+    
+        <!-- Certificate Display -->
+        <div id="certificate-display" class="certificate-display hidden">
+            <span class="close">&times;</span>
+            <img id="certificate-img" src="" alt="Certificate">
+        </div>
+    </section>
+    
+    <style>
+        /* Certifications Section */
+        #certifications {
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+        }
+    
+        #certifications h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+    
+        .certifications-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
+            width: 320px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .card h3 {
+            margin: 15px 0;
+            color: #2980b9;
+            font-size: 1.5rem;
+        }
+    
+        .card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Certificate Display Section */
+        .certificate-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px auto 0;
+            padding: 20px;
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+    
+        .certificate-display.hidden {
+            display: none;
+        }
+    
+        .certificate-display img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    
+        .certificate-display .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+        }
+    
+        .certificate-display .close:hover {
+            color: #e74c3c;
+        }
+    </style>
+    
+    <script>
+        // JavaScript for handling card clicks and certificate display
+        const cards = document.querySelectorAll('.card');
+        const certificateDisplay = document.getElementById('certificate-display');
+        const certificateImg = document.getElementById('certificate-img');
+        const closeDisplay = document.querySelector('.close');
+    
+        // Certificates map
+        const certificates = {
+            cert1: 'path-to-certificate1.jpg',
+            cert2: 'path-to-certificate2.jpg',
+            cert3: 'path-to-certificate3.jpg'
+        };
+    
+        // Show certificate
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const certId = card.getAttribute('data-cert');
+                certificateImg.src = certificates[certId];
+                certificateDisplay.classList.remove('hidden');
+            });
+        });
+    
+        // Close certificate display
+        closeDisplay.addEventListener('click', () => {
+            certificateDisplay.classList.add('hidden');
+        });
+    </script>
+    
+</body>
+</html>

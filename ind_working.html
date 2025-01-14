@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keerthana Chelladurai</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+        }
+
+        nav img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 3px solid #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2980b9;
+        }
+
+        main {
+            margin-left: 270px;
+            padding: 20px;
+            flex: 1;
+            background-color: #ecf0f1;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        header {
+            background-color: #2980b9;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 5px;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        /* Get in Touch section styling */
+        #get-in-touch {
+            margin-top: 30px;
+        }
+
+        #get-in-touch h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+
+        #get-in-touch div {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            /* Increased gap between icon-value pairs */
+        }
+
+        #get-in-touch div div {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Reduced space between icon and value */
+        }
+
+        #get-in-touch div i {
+            font-size: 24px;
+            color: #34495e;
+        }
+
+        #get-in-touch div p,
+        #get-in-touch div a {
+            color: #34495e;
+            text-decoration: none;
+        }
+
+        #get-in-touch div a {
+            font-weight: 500;
+        }
+
+        #get-in-touch div a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            /* Adds an underline */
+        }
+
+        #get-in-touch div div:hover::after {
+            content: attr(data-tooltip);
+            /* Display tooltip text */
+            position: absolute;
+            bottom: -30px;
+            /* Position the tooltip below the icon */
+            left: 50%;
+            /* Center the tooltip */
+            transform: translateX(-50%);
+            background-color: #34495e;
+            /* Tooltip background color */
+            color: white;
+            /* Tooltip text color */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            /* Prevent line breaks */
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            /* Add a shadow for better visibility */
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #get-in-touch div div::after {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Fiverr logo */
+        .fiverr-icon {
+            width: 24px;
+            height: 24px;
+            background-image: url('https://img.icons8.com/?size=100&id=14h574ySQ7kG&format=png&color=000000');
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: inline-block;
+            filter: invert(0) grayscale(0) brightness(0) sepia(0) saturate(0);
+        }
+
+        nav ul li a.active {
+            color: #2980b9;
+            /* Highlight color */
+            font-weight: bold;
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        nav.hidden {
+            transform: translateX(-270px);
+        }
+
+        main.hidden {
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="sidebar">
+        <img src="img.jfif" alt="Portfolio Logo">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#get-in-touch">Get in Touch</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Hi, I'm Keerthana Chelladurai</h1>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>As a Reporting Analyst at Global Payments, I specialize in designing data-driven dashboards, automating
+                reporting processes, and delivering actionable insights that enhance team performance and customer
+                experience. With a strong foundation in data analytics, cloud computing, and automation, I bring over 3
+                years of professional experience, and a Master’s degree (MSc) in Big Data Management and Analytics from
+                Griffith College, Dublin. My expertise lies in bridging the gap between data and decision-making,
+                ensuring that insights drive measurable outcomes.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px;">
+
+                <div>
+                    <h3>Global Payments</h3>
+                    <h4><i>Role: Reporting Analyst </i></h4>
+                    <ul>
+                        <li>Responsible for generating daily, weekly, and monthly reports that track key performance
+                            indicators (KPIs) such as answer rate, service level agreements (SLA), average speed of
+                            answer, average handling time, Voice of the Customer (VOC) scores, and call volumes. The
+                            data is analyzed, and actionable insights are provided to management to drive performance
+                            improvements and elevate customer experience.
+                        </li>
+                        <li>Designed a user-friendly agent performance and skills dashboard using AppScript, HTML/CSS
+                            and embedded the code in Google Sites to showcase the performance in a visually appealing
+                            website. This dashboard enables efficient tracking of performance and skill assessments,
+                            supporting data-driven decision-making to enhance team effectiveness.</li>
+                        <li>Created an end-to-end pipeline to import the PCI raw data, cleaned the file for analysis,
+                            and leveraged vlookups to transform the raw data into reports for switching on/off
+                            compliance fees for respective merchants.</li>
+                        <li>Implemented Python automation to send daily interval statistics to keep the management team
+                            informed about the call/ chat and email volumes at regular intervals throughout the day,
+                            also responsible for predicting headcount for the following day using historical data so the
+                            team is ready to achieve relevant targets as part of resource management.</li>
+                        <li>Managing and reporting our third-party BOT (ServisBot) effectively with frequent updates to
+                            the bot knowledge base and revising the insights from missed intents from merchant queries.
+                        </li>
+                    </ul>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500; white-space: nowrap;">
+                    <p><i>Jan 2024 - Present</i></p>
+                </div>
+            </div>
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px;">
+                <div>
+                    <h3>Optum</h3>
+                    <h4><i>Role: Associate IO Engineering Analyst</i></h4>
+                    <ul>
+                        <li>Developed and deployed end-to-end Splunk log process automation using Python to detect hung
+                            workflow states & avert potential user disruption by notifying the respective team on the
+                            current job status which helped in reducing resolution times by 45%</li>
+                        <li>Analysed VictorOps data generated from AWS APIs on applications downtime and designed an
+                            automatic on-call setup which reduced the resolution period.</li>
+                        <li>Created a word-cloud visualization on the root cause analysis of all the high-priority
+                            incidents and notified stakeholders on any new releases which matches the top words.</li>
+                        <li>Served as Scrum master following Agile methodology and conducted all the sprint events.
+                        </li>
+                    </ul>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500; white-space: nowrap;">
+                    <p><i>Sept 2019 - Feb 2022</i></p>
+                </div>
+
+
+            </div>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px;">
+                <div>
+                    <h3>Optisol Business Solutions </h3>
+                    <h4><i>Role: Data Science Intern </i></h4>
+                    <ul>
+                        <li><strong>OpenCV Face Detection</strong>: Worked in the face detection module which predicts
+                            human faces in real-time data. I’ve used Python programming language, the training face
+                            dataset was collected from the team members, employed feature engineering on the dataset to
+                            achieve maximum accuracy.</li>
+                        <li><strong>Data Analysis</strong>: Implemented trend analysis model using twitteR package and
+                            created word cloud visualization.</li>
+                    </ul>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500; white-space: nowrap;">
+                    <p><i>Dec 2017 - May 2018</i></p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Added Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <h3>Griffith College</h3>
+                    <h4><i>Master of Science in Big Data Management and Analytics</i></h4>
+                    <p><strong>GPA:</strong> 4.0/5.0</p>
+                    <p><strong>Core:</strong> Big Data Management, Applied Data Science, Data Mining Algorithms and
+                        Techniques</p>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500;">
+                    <p><strong>Location:</strong> Dublin, Ireland</p>
+                    <p><strong>Graduation Date:</strong> Sept 2023</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
+                <div>
+                    <h3>Loyola College</h3>
+                    <h4><i>Master of Science in Computer Science</i></h4>
+                    <p><strong>GPA:</strong> 8.8/10</p>
+                    <p><strong>Core:</strong> Data mining using R programming</p>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500;">
+                    <p><strong>Location:</strong> Chennai, India</p>
+                    <p><strong>Graduation Date:</strong> Jun 2018</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div>
+                <ul>
+                    <li><i><strong>Black Friday sales prediction</strong></i>: Using XGBoost algorithm, trained the data
+                        gathered from Kaggle to
+                        predict the sales of big mart outlets during Black Friday.
+                    </li>
+                    <li><i><strong>Tableau data visualization</strong></i>: By importing the ‘Types of birth control
+                        preferred in US’ dataset, built more than 15 types of dashboards to visualize the most preferred
+                        type which helped me learn the different kinds of graphs and the appropriate usages of graphs
+                        for categorical and discrete data.</li>
+                    <li><i><strong>Web crawling</strong></i>: Using Python, developed an information retrieval system by
+                        crawling the Griffith College website using the Scrapy library and pre-processed the data
+                        collected. Then, calculated the weights using cosine similarity and retrieved the relevant
+                        documents. </li>
+                    <li><i><strong>Web development</strong></i>: Learned Python Flask framework to develop a webpage for
+                        managing electric vehicles. Used Google Cloud Platform’s datastore as database to do CRUD
+                        operations, Python on the API layer, and HTML/CSS for the front end.</li>
+                    <li><i><strong>Length of hospital stay prediction</strong></i>: Evaluated various ML models to
+                        predict LOS of patients with higher accuracy, deployed the model as a library and imported the
+                        same in a frontend web application for seamless prediction.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div>
+                <ul>
+                    <li>Microsoft Excel Data Analysis and Dashboard Reporting, Udemy  </li>
+                    <li>Data Visualisation: Empowering Business with Effective Insights, TATA</li>
+                    <li>Intermediate SQL for Data Scientists, LinkedIn</li>
+
+                </ul>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Share your interests and activities that you enjoy in your free time.</p>
+        </section>
+
+        <section id="get-in-touch">
+            <h2>Get in Touch</h2>
+            <div>
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Dublin, Ireland</p>
+                </div>
+                <div data-tooltip="Send an Email">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:keerthanachelladurai26@gmail.com">keerthanachelladurai26@gmail.com</a>
+                </div>
+                <div data-tooltip="View Keerthana on LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/keerthana2026/"
+                        target="_blank">linkedin.com/in/keerthana2026</a>
+                </div>
+                <div data-tooltip="Check Fiverr Profile">
+                    <span class="fiverr-icon"></span>
+                    <a href="https://www.fiverr.com/your-fiverr-profile"
+                        target="_blank">fiverr.com/your-fiverr-profile</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const sections = document.querySelectorAll("main section");
+
+            const options = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.6, // Highlight when 60% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const link = document.querySelector(`nav ul li a[href="#${entry.target.id}"]`);
+                    if (entry.isIntersecting) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+            }, options);
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

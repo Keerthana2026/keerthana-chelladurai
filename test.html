@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        nav {
+            width: 250px;
+            background-color: #34495e;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+        }
+
+        nav img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 3px solid #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2980b9;
+        }
+
+        main {
+            margin-left: 270px;
+            padding: 20px;
+            flex: 1;
+            background-color: #ecf0f1;
+            padding-left: 30px;
+            /* Added space between the nav bar and the content */
+        }
+
+        header {
+            background-color: #2980b9;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 5px;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        .key-skills {
+            margin-top: 20px;
+        }
+
+        .key-skills p {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .key-skills strong {
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .skills-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skills-icons img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .skills-icons div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav> <img src="your-image.jpg" alt="Portfolio Logo">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Your Name</h1>
+        </header>
+        <section id="about">
+            <h2>About</h2>
+            <p>This is a placeholder text for the About section. Add your personal introduction here.</p>
+        </section>
+        <section id="skills">
+            <h2>Key Skills</h2>
+            <div class="key-skills">
+                <p><strong>Data Analytics & Visualization Tools:</strong> Tableau, Power BI, Advanced Excel, Google
+                    Sheets</p>
+                <div class="skills-icons">
+                    <div> <img src="tableau.png" alt="Tableau">
+                        <p>Tableau</p>
+                    </div>
+                    <div> <img src="bi.png" alt="Power BI">
+                        <p>Power BI</p>
+                    </div>
+                    <div> <img src="excel.png" alt="Advanced Excel">
+                        <p>Advanced Excel</p>
+                    </div>
+                    <div> <img src="sheets.png" alt="Google Sheets">
+                        <p>Google Sheets</p>
+                    </div>
+                </div>
+                <p><strong>Programming & Technical Skills:</strong> Python, R Programming, SQL, HTML/CSS, Hadoop, AWS,
+                    Hive, Spark, Google AppScript</p>
+                <div class="skills-icons">
+                    <div> <img src="python.png" alt="Python">
+                        <p>Python</p>
+                    </div>
+                    <div> <img src="rprogramming.png" alt="R Programming">
+                        <p>R Programming</p>
+                    </div>
+                    <div> <img src="sql.png" alt="SQL">
+                        <p>SQL</p>
+                    </div>
+                    <div> <img src="html.png" alt="HTML">
+                        <p>HTML</p>
+                    </div>
+                    <div> <img src="css.png" alt="CSS">
+                        <p>CSS</p>
+                    </div>
+                    <div> <img src="hadoop.png" alt="Hadoop">
+                        <p>Hadoop</p>
+                    </div>
+                    <div> <img src="aws.png" alt="AWS">
+                        <p>AWS</p>
+                    </div>
+                    <div> <img src="hive.png" alt="Hive">
+                        <p>Hive</p>
+                    </div>
+                    <div> <img src="spark.png" alt="Spark">
+                        <p>Spark</p>
+                    </div>
+                    <div> <img src="appscript.png" alt="Google AppScript">
+                        <p>Google AppScript</p>
+                    </div>
+                </div>
+                <p><strong>Frameworks & Methodologies:</strong> ITSM, Agile, Scrum, GitHub</p>
+                <div class="skills-icons">
+                    <div> <img src="itsm.jpg" alt="ITSM">
+                        <p>ITSM</p>
+                    </div>
+                    <!-- <div> <img src="agile-icon.png" alt="Agile">
+                        <p>Agile</p>
+                    </div> -->
+                    <div> <img src="scrum.png" alt="Scrum">
+                        <p>Scrum</p>
+                    </div>
+                    <div> <img src="github.png" alt="GitHub">
+                        <p>GitHub</p>
+                    </div>
+                </div>
+                <p><strong>Platforms & Applications:</strong> JIRA, ServiceNow, Rally, Splunk</p>
+                <div class="skills-icons">
+                    <div> <img src="jira.png" alt="JIRA">
+                        <p>JIRA</p>
+                    </div>
+                    <div> <img src="servicenow_logo.jfif" alt="ServiceNow">
+                        <p>ServiceNow</p>
+                    </div>
+                    <div> <img src="rally.jfif" alt="Rally">
+                        <p>Rally</p>
+                    </div>
+                    <div> <img src="splunk.png" alt="Splunk">
+                        <p>Splunk</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <h3>Company A</h3>
+                    <h4><i>Role: Software Engineer</i></h4>
+                    <ul>
+                        <li>Developed and maintained web applications using modern frameworks.</li>
+                        <li>Collaborated with cross-functional teams to define project requirements.</li>
+                        <li>Optimized system performance and reduced load times by 30%.</li>
+                    </ul>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500;">
+                    <p>Jan 2020 - Dec 2022</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
+                <div>
+                    <h3>Company B</h3>
+                    <h4><i>Role: Data Analyst</i></h4>
+                    <ul>
+                        <li>Analyzed large datasets to identify trends and insights for stakeholders.</li>
+                        <li>Automated reporting processes, saving 15 hours per week.</li>
+                        <li>Presented actionable recommendations that improved decision-making.</li>
+                    </ul>
+                </div>
+                <div style="text-align: right; color: #34495e; font-weight: 500;">
+                    <p>Mar 2018 - Dec 2019</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Showcase the projects you have worked on, including key achievements and technologies used.</p>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <p>List your certifications and the skills you have gained from them.</p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>Share your interests and activities that you enjoy in your free time.</p>
+        </section>
+    </main>
+</body>
+
+</html>
