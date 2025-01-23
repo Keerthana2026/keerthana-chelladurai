@@ -688,26 +688,10 @@
             </div>
         </section>
         <br>
-
-        <div>Website visit count:</div>
-        <div class="website-counter"></div>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        // counter
-        var counterContainer = document.querySelector(".website-counter");
-        var visitCount = localStorage.getItem("page_view");
-        visitCount = 1;
-        // Check if page_view entry is present
-        if (visitCount) {
-            visitCount = Number(visitCount) + 1;
-            localStorage.setItem("page_view", visitCount);
-        } else {
-            visitCount = 1;
-            localStorage.setItem("page_view", 1);
-        }
-        counterContainer.innerHTML = visitCount;
+
 
         // typing
         var typed = new Typed('.typing', {
