@@ -293,6 +293,17 @@
             border-radius: 8px;
         }
 
+        /* .website-counter { */
+            /* background-color: #ff4957; */
+            /* height: 50px;
+            width: 80px;
+            color: white;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 25px;
+            margin-top: 10px;
+        } */
+
         .certificate-display .close {
             position: absolute;
             top: 20px;
@@ -676,16 +687,28 @@
                 </div>
             </div>
         </section>
+        <br>
 
-        <div id="sfcezzzuu87a8sbedrdue2gbhbd9z4jcjt7"></div>
-        <script type="text/javascript"
-            src="https://counter6.optistats.ovh/private/counter.js?c=ezzzuu87a8sbedrdue2gbhbd9z4jcjt7&down=async"
-            async></script><noscript><a href="https://www.freecounterstat.com" title="visitor counter"><img
-                    src="https://counter6.optistats.ovh/private/freecounterstat.php?c=ezzzuu87a8sbedrdue2gbhbd9z4jcjt7"
-                    border="0" title="visitor counter" alt="visitor counter"></a></noscript>
+        <div>Website visit count:</div>
+        <div class="website-counter"></div>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
+        // counter
+        var counterContainer = document.querySelector(".website-counter");
+        var visitCount = localStorage.getItem("page_view");
+        visitCount = 1;
+        // Check if page_view entry is present
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        counterContainer.innerHTML = visitCount;
+
         // typing
         var typed = new Typed('.typing', {
             strings: ["Data Analyst", "Pythonist", "Automation Enthusiast", "Logical Thinker", "Problem Solver", "Visual Storyteller"],
