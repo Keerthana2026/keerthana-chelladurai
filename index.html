@@ -294,8 +294,8 @@
         }
 
         /* .website-counter { */
-            /* background-color: #ff4957; */
-            /* height: 50px;
+        /* background-color: #ff4957; */
+        /* height: 50px;
             width: 80px;
             color: white;
             border-radius: 30px;
@@ -375,6 +375,7 @@
             <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
             <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
             <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#awards"><i class="fa-solid fa-award"></i></i> Awards & Recognitions</a></li>
             <li><a href="#hobbies"><i class="fas fa-futbol"></i> Hobbies</a></li>
             <li><a href="#get-in-touch"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
@@ -653,6 +654,29 @@
         </section>
 
 
+        <!-- Awards and Recognitions -->
+        <section id="awards">
+            <h2>Awards & Recognitions</h2>
+            <div class="awards-container">
+                <!-- Card 1 -->
+                <div class="q" data-award="award1">
+                    <h3>Circle of Excellence - 2025</h3>
+                    <h4><i>Global Payments</i></h4>
+                    <p>Received the Circle of Excellence award from Global Payments in recognition of going above and
+                        beyond with respect to consistent performance, collaboration, and contribution to team goals.
+                        This recognition also aligned with my ongoing commitment to delivering operational excellence,
+                        building effective software tools, and growing within a data-driven, team-oriented
+                        environment.<br>
+                        <u>Click to view award</u>
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
         <section id="hobbies">
             <h2>Hobbies</h2>
             <div>
@@ -695,7 +719,7 @@
 
         // typing
         var typed = new Typed('.typing', {
-            strings: ["Data Analyst", "Pythonist", "Automation Enthusiast", "Logical Thinker", "Problem Solver", "Visual Storyteller"],
+            strings: ["Data Analyst", "Python Developer", "Automation Enthusiast", "Logical Thinker", "Problem Solver", "Visual Storyteller"],
             loop: true,
             typeSpeed: 80,
             backSpeed: 40
@@ -764,6 +788,23 @@
 
         // ===================
         // typing
+
+
+        // awards
+        // Awards map
+        const awards = {
+            award1: 'award1.jpg'
+        };
+
+        // Show award
+        const awardCards = document.querySelectorAll('[data-award]');
+        awardCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const awardId = card.getAttribute('data-award');
+                certificateImg.src = awards[awardId];
+                certificateDisplay.classList.remove('hidden');
+            });
+        });
 
     </script>
 
